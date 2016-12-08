@@ -1,0 +1,23 @@
+{
+  "name": "serverless-todo",
+  "version": "1.0.0",
+  "description": "A todo app using serverless architecture",
+  "dependencies": {
+    "aws-sdk": "^2.7.12",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChenLi0830/Serverless-Todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChenLi0830/Serverless-Todo/issues"
+  },
+  "homepage": "https://github.com/ChenLi0830/Serverless-Todo#readme"
+}

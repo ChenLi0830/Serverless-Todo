@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-	hello: require('./hello')
+	hello: require('./hello'),
+	create: require('./create')
 };
