@@ -2,5 +2,6 @@
 
 module.exports = {
 	hello: require('./hello'),
-	create: require('./create')
+	create: require('./create'),
+	update: require('./update')
 };

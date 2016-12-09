@@ -30,10 +30,10 @@ module.exports = (event, context, callback) => {
   }
   
   const params = {
-    TableName: "todos",
+    TableName: "todos2",
     Item: {
       id: uuid.v4(),
-      text: data,
+      text: data.text,
       checked: false,
       createdAt: timeStamp,
       updatedAt: timeStamp,

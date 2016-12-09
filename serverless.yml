@@ -82,6 +82,13 @@ functions:
           method: post
           cors: true
 
+  update:
+    handler: todos.update
+    events:
+      - http:
+          path: todos/{id}
+          method: put
+          cors: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -116,7 +123,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: 'todos'
+        TableName: 'todos2'
 
 
 # you can add CloudFormation resource templates here
