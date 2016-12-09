@@ -4,14 +4,24 @@
 'use strict';
 
 let AWS = require("aws-sdk");
+
+// AWS.config.update({
+//   region: "us-east-1",
+//   endpoint: "http://localhost:8000"
+// });
+
 let uuid = require("uuid");
 let docClient = new AWS.DynamoDB.DocumentClient();
 
 module.exports = (event, context, callback) => {
   const timeStamp = new Date().getTime();
-  const data = JSON.parse(event.body);
   
-  console.log("data", data);
+  // console.log("event.body", event.body);
+  // console.log("typeof event.body", typeof event.body);
+  
+  const data = typeof event.body === "object" ? event.body : JSON.parse(event.body);
+  
+  // console.log("data", data);
   
   if (typeof data.text !== 'string') {
     console.error("Invalid input: todo must be a string");
@@ -30,16 +40,15 @@ module.exports = (event, context, callback) => {
     }
   };
   
+  // write the todo to the database
   docClient.put(params, (err, data) => {
     // handle potential errors
-    console.log("err", err);
     console.log("data", data);
     if (err) {
+      console.log("An error occurred:", err);
       callback(new Error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2)));
       return;
     }
-    // item added Successfully
-    console.log("Added item:", JSON.stringify(data, null, 2));
     const response = {
       statusCode: 200,
       body: JSON.stringify(data)
